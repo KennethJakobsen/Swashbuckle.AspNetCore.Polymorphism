@@ -42,15 +42,15 @@ namespace Swashbuckle.AspNetCore.Polymorphism
 
         public void Apply(Schema model, SchemaFilterContext context)
         {
-            foreach (var type in _types)
-            {
-                ApplyFilter(model, type);
-            }
+            if (!_derivedTypes.Value.Contains(context.SystemType)) return;
+            ApplyFilter(model, context.SystemType.BaseType);
+
+
         }
 
-        private void ApplyFilter(Schema model, Type type)
+        private void ApplyFilter(Schema model, Type parent)
         {
-            if (!_derivedTypes.Value.Contains(type)) return;
+
 
             var clonedSchema = new Schema
             {
@@ -60,7 +60,7 @@ namespace Swashbuckle.AspNetCore.Polymorphism
             };
 
             //schemaRegistry.Definitions[typeof(T).Name]; does not work correctly in SwashBuckle
-            var parentSchema = new Schema { Ref = "#/definitions/" + type.Name };
+            var parentSchema = new Schema { Ref = "#/definitions/" + parent.Name };
 
             model.AllOf = new List<Schema> { parentSchema, clonedSchema };
 
