@@ -6,11 +6,11 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Swashbuckle.AspNetCore.Polymorphism
 {
-    public class PolymorphismDocumentFilter : IDocumentFilter
+    internal class PolymorphismDocumentFilter : IDocumentFilter
     {
         private readonly Type[] _types;
 
-        public PolymorphismDocumentFilter(TypesPasser types)
+        internal PolymorphismDocumentFilter(TypesPasser types)
         {
             _types = types.Types;
         }
@@ -43,7 +43,6 @@ namespace Swashbuckle.AspNetCore.Polymorphism
             {
                 RegisterSubClasses(context.SchemaRegistry, type);
             }
-
         }
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Swashbuckle.AspNetCore.Polymorphism
 {
-    public class TypesPasser
+    internal class TypesPasser
     {
-        public TypesPasser(Type[] types)
+        internal TypesPasser(Type[] types)
         {
             Types = types;
         }
