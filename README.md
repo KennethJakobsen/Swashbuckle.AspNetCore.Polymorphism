@@ -2,8 +2,7 @@
 Polymorhism doc and schema filters
 
 # How to use
-Create a new TypesPasser to pass your collection of base types to the filters.
-Add Filters to config.
+Use the AddTypes extension to add an array of your base types.
 ``` 
 
 services.AddSwaggerGen(options =>
@@ -15,4 +14,3 @@ services.AddSwaggerGen(options =>
            typeof(RegistrationBase)
       });
 });
-            ```
