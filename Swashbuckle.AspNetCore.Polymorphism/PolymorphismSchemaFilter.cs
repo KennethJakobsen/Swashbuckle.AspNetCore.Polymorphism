@@ -6,7 +6,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Swashbuckle.AspNetCore.Polymorphism
 {
-    public class PolymorphismSchemaFilter : ISchemaFilter
+    internal class PolymorphismSchemaFilter : ISchemaFilter
     {
         private readonly Type[] _types;
 
@@ -24,34 +24,26 @@ namespace Swashbuckle.AspNetCore.Polymorphism
 
             foreach (var type in _types)
             {
-
-
                 var abstractType = type;
                 var dTypes = abstractType.Assembly
                     .GetTypes()
                     .Where(x => abstractType != x && abstractType.IsAssignableFrom(x));
 
-
-
                 foreach (var item in dTypes)
                     result.Add(item);
             }
+            
             return result;
         }
-
 
         public void Apply(Schema model, SchemaFilterContext context)
         {
             if (!_derivedTypes.Value.Contains(context.SystemType)) return;
             ApplyFilter(model, context.SystemType.BaseType);
-
-
         }
 
         private void ApplyFilter(Schema model, Type parent)
         {
-
-
             var clonedSchema = new Schema
             {
                 Properties = model.Properties,

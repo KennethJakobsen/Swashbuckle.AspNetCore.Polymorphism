@@ -1,5 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Kenneth Jakobsen</Authors>
@@ -15,9 +14,7 @@
     <RepositoryType>Git</RepositoryType>
     <PackageReleaseNotes>Polymorhism doc and schema filters</PackageReleaseNotes>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="2.2.0" />
   </ItemGroup>
-
 </Project>
