@@ -6,7 +6,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Swashbuckle.AspNetCore.Polymorphism
 {
-    internal class PolymorphismSchemaFilter : ISchemaFilter
+    public class PolymorphismSchemaFilter : ISchemaFilter
     {
         private readonly Type[] _types;
 

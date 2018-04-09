@@ -6,7 +6,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Swashbuckle.AspNetCore.Polymorphism
 {
-    internal class PolymorphismDocumentFilter : IDocumentFilter
+    public class PolymorphismDocumentFilter : IDocumentFilter
     {
         private readonly Type[] _types;
 
