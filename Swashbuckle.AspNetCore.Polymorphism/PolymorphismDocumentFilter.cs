@@ -10,7 +10,7 @@ namespace Swashbuckle.AspNetCore.Polymorphism
     {
         private readonly Type[] _types;
 
-        internal PolymorphismDocumentFilter(TypesPasser types)
+        public PolymorphismDocumentFilter(TypesPasser types)
         {
             _types = types.Types;
         }
